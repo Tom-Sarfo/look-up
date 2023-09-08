@@ -6,10 +6,10 @@ export default function WelcomeText() {
 	const [searchInput] = input;
 
 	return (
-		<div>
+		<div className="WelcomeText">
 			{searchInput === "" && (
 				<div>
-					<h2>Get Quick Information from your Stock Position!</h2>
+					<h2>Get Quick Insight from your Stock Position!</h2>
 				</div>
 			)}
 		</div>
