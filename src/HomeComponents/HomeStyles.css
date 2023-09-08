@@ -1,0 +1,51 @@
+.Home {
+	background-color: white;
+	padding: 0.5rem;
+	color: black;
+}
+
+.SearchWrapper {
+	width: 450px;
+	background-color: white;
+	padding: 0.7rem;
+	border-radius: 0.5rem;
+	color: black;
+}
+
+.SearchContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.SearchIcon {
+	color: #ff5100;
+}
+
+.Search {
+	display: flex;
+	width: 100%;
+	padding: 0.5rem;
+	align-items: center;
+}
+
+.SearchSuggestedList {
+	list-style-type: none;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.SearchSuggestion {
+	padding: 0.5rem;
+}
+
+ul li {
+	border-top: 1px solid #e0dfe1;
+	margin-right: 0.7rem;
+}
+
+@media (max-width: 500px) {
+	.SearchWrapper {
+		width: 320px;
+	}
+}
