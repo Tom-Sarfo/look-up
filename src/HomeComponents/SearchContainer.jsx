@@ -12,24 +12,20 @@ export default function SearchContainer({
 	setDrugData,
 }) {
 	const [toggleSuggestedList, setToggleSuggestedList] = useState(false);
+	const [filteredData, setFilteredData] = useState([]);
 
 	const handleChange = (inputValue) => {
 		setSearchInput(inputValue);
 		setToggleSuggestedList(false);
-		fetchDrugData(inputValue);
+		fetchFilteredDrugData(inputValue);
 	};
 
-	useEffect(() => {
-		fetchDrugData();
-	}, []);
-
-	async function fetchDrugData(inputValue) {
-		const { data } = await supabase.from("Drugs").select();
-		let searchFilter = data?.filter((match) => {
+	function fetchFilteredDrugData(inputValue) {
+		let searchFilter = drugData?.filter((match) => {
 			const searchValue = inputValue?.toLowerCase();
 			return match.DrugName.toLowerCase().includes(searchValue);
 		});
-		setDrugData(searchFilter);
+		setFilteredData(searchFilter);
 	}
 
 	function handleHide() {
@@ -51,7 +47,7 @@ export default function SearchContainer({
 				</div>
 				{searchInput !== "" && toggleSuggestedList === false && (
 					<ul className="SearchSuggestedList" onClick={handleHide}>
-						{drugData.map((drug) => {
+						{filteredData.map((drug) => {
 							return (
 								<li key={drug.DrugId}>
 									<Link to={`/drug_details/${drug.DrugId}`}>

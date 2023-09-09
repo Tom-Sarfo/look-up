@@ -1,12 +1,22 @@
-import DrugDetailCard from "../ReusableComponents/DrugDetailCard";
 import "./HomeStyles.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DrugData } from "../DrugDataContext";
 import SearchContainer from "./SearchContainer";
 import { Outlet } from "react-router-dom";
+import supabase from "../DbConnection";
+
 export default function Home() {
 	const [searchInput, setSearchInput] = useState("");
 	const [drugData, setDrugData] = useState([]);
+
+	useEffect(() => {
+		fetchDrugData();
+	}, []);
+
+	async function fetchDrugData() {
+		const { data } = await supabase.from("Drugs").select();
+		setDrugData(data);
+	}
 
 	return (
 		<DrugData.Provider

@@ -1,7 +1,11 @@
 .Home {
+	display: flex;
+	flex-direction: column;
 	background-color: #808080;
 	padding: 0.5rem;
 	color: black;
+	justify-content: center;
+	align-items: center;
 }
 
 .SearchWrapper {
@@ -10,7 +14,7 @@
 	padding: 0.7rem;
 	border-radius: 0.5rem;
 	color: black;
-	margin-left: 3rem;
+	/* margin-left: 3rem; */
 }
 
 .SearchContainer {
@@ -50,7 +54,7 @@ ul li {
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-	margin-left: 0.5rem;
+	margin-left: -1rem;
 }
 
 .WelcomeText h2 {
