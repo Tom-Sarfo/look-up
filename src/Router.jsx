@@ -1,6 +1,7 @@
 import AppEntry from "./AppEntry";
 import Home from "./HomeComponents/Home";
 import SearchInput from "./HomeComponents/SearchInput";
+import Stock from "./HomeComponents/StockComponents/Stock";
 import WelcomeText from "./HomeComponents/WelcomeText";
 import DrugDetailCard from "./ReusableComponents/DrugDetailCard";
 
@@ -26,6 +27,10 @@ export const Routers = [
 			{
 				path: "/search",
 				element: <SearchInput />,
+			},
+			{
+				path: "/stock_position",
+				element: <Stock />,
 			},
 		],
 	},

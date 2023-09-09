@@ -1,18 +1,18 @@
 import SearchIcon from "@mui/icons-material/Search";
 import SearchInput from "./SearchInput";
 import SearchSuggestion from "./SearchSuggestion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import supabase from "../DbConnection";
+// import supabase from "../DbConnection";
+import { DrugData } from "../DrugDataContext";
 
-export default function SearchContainer({
-	searchInput,
-	setSearchInput,
-	drugData,
-	setDrugData,
-}) {
+export default function SearchContainer() {
 	const [toggleSuggestedList, setToggleSuggestedList] = useState(false);
 	const [filteredData, setFilteredData] = useState([]);
+
+	const { drugs, input } = useContext(DrugData);
+	const [drugData] = drugs;
+	const [searchInput, setSearchInput] = input;
 
 	const handleChange = (inputValue) => {
 		setSearchInput(inputValue);
