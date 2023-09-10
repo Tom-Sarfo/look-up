@@ -1,9 +1,8 @@
 import SearchIcon from "@mui/icons-material/Search";
 import SearchInput from "./SearchInput";
 import SearchSuggestion from "./SearchSuggestion";
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-// import supabase from "../DbConnection";
 import { DrugData } from "../DrugDataContext";
 
 export default function SearchContainer() {
