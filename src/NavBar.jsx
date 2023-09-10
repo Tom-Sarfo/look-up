@@ -38,21 +38,21 @@ export default function NavBar() {
 						Look<b>Up</b>
 						{/* </Link> */}
 					</Typography>
-					{/* <Link to="/stock_position"> */}
-					<Button
-						color="inherit"
-						sx={{
-							textDecoration: "none",
-							color: "white",
-							":hover": {
-								color: "#ff5100",
-								bgcolor: "white",
-							},
-						}}
-					>
-						Stock Position
-					</Button>
-					{/* </Link> */}
+					<Link to="/stock_position">
+						<Button
+							color="inherit"
+							sx={{
+								textDecoration: "none",
+								color: "white",
+								":hover": {
+									color: "#ff5100",
+									bgcolor: "white",
+								},
+							}}
+						>
+							Stock Position
+						</Button>
+					</Link>
 				</Toolbar>
 			</AppBar>
 		</Box>
