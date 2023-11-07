@@ -3,8 +3,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { DrugData } from "../DrugDataContext";
-import Details from "./Details";
+import { DrugData } from "../../DrugDataContext";
+import Details from "../Details";
 import BasicMenu from "./Menu";
 
 export default function DrugListCard() {

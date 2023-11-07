@@ -3,7 +3,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useState } from "react";
 import ItemDetails from "./ItemDetails";
-import BasicMenu from "./../../../ReusableComponents/Menu";
+import BasicMenu from "../../../ReusableComponents/DrugCard/Menu";
 
 export default function DrugListCard({ drug }) {
 	const [expandDrugDetail, setExpandDrugDetail] = useState(false);

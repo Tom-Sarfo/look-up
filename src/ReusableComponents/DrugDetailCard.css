@@ -3,7 +3,13 @@
 	padding: 0.5rem;
 }
 
+/* remove this class and define it right below it */
 .drugName {
+	color: #ff5100;
+	font-weight: 700;
+}
+
+.drugItem > p {
 	color: #ff5100;
 	font-weight: 700;
 }

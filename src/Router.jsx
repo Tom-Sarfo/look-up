@@ -3,7 +3,10 @@ import Home from "./HomeComponents/Home";
 import SearchInput from "./HomeComponents/SearchInput";
 import StockList from "./HomeComponents/StockComponents/StockList";
 import WelcomeText from "./HomeComponents/WelcomeText";
-import DrugDetailCard from "./ReusableComponents/DrugDetailCard";
+// import DrugDetailCard from "./ReusableComponents/DrugDetailCard";
+// import SampleCode from "./ReusableComponents/DrugCard/SampleCode"
+import OutletComponent from "./OutletComponent";
+
 
 export const Routers = [
 	{
@@ -20,7 +23,7 @@ export const Routers = [
 					},
 					{
 						path: "/drug_details/:id",
-						element: <DrugDetailCard />,
+						element: <OutletComponent />,
 					},
 				],
 			},
