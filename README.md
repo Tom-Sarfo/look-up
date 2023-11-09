@@ -1,6 +1,7 @@
 # Look-Up
 
-LookUp Sales Assistant is a cutting-edge mobile-friendly application designed to empower sales professionals
+LookUp Sales Assistant is a cutting-edge mobile-friendly application designed to empower sales professionals.
+
 An easy to read and maintainable code:
 
 # Installation
