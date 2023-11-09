@@ -8,35 +8,35 @@ import Footer from "./Footer";
 import "./App.css";
 
 function AppEntry() {
-	const [searchInput, setSearchInput] = useState("");
-	const [drugData, setDrugData] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [drugData, setDrugData] = useState([]);
 
-	useEffect(() => {
-		fetchDrugData();
-	}, []);
+  useEffect(() => {
+    fetchDrugData();
+  }, []);
 
-	async function fetchDrugData() {
-		const { data } = await supabase.from("Drugs").select();
-		setDrugData(data);
-	}
+  async function fetchDrugData() {
+    const { data } = await supabase.from("Drugs").select();
+    setDrugData(data);
+  }
 
-	return (
-		<>
-			<DrugData.Provider
-				value={{
-					drugs: [drugData, setDrugData],
-					input: [searchInput, setSearchInput],
-				}}
-			>
-				<NavBar />
-				<div className="OutletContainer">
-					<Outlet />
-				</div>
+  return (
+    <>
+      <DrugData.Provider
+        value={{
+          drugs: [drugData, setDrugData],
+          input: [searchInput, setSearchInput],
+        }}
+      >
+        <NavBar />
+        <div className="OutletContainer">
+          <Outlet />
+        </div>
 
-				<Footer />
-			</DrugData.Provider>
-		</>
-	);
+        <Footer />
+      </DrugData.Provider>
+    </>
+  );
 }
 
 export default AppEntry;

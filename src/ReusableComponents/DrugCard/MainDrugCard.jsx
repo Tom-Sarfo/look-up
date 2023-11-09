@@ -1,21 +1,20 @@
 import { Paper } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
-import { DrugData } from "../../DrugDataContext";
-import Details from "../Details";
+import { useState } from "react";
+import Detail from "./Detail";
 import BasicMenu from "./Menu";
 
-export default function DrugListCard() {
+/**
+ * MainDrugCard - Display a Card containing drug info
+ * @param: {drug} - an object data type containing drug data(info)
+ * @param: {styleClassName} - an object data type containing component
+ * class names to style target components
+ * @returns: jsx
+ */
+
+export default function MainDrugCard({ drug, styleClassName }) {
   const [expandDrugDetail, setExpandDrugDetail] = useState(false);
-
-  const drugId = useParams();
-  const { drugs, input } = useContext(DrugData);
-  const [searchInput] = input;
-  const [drugData] = drugs;
-
-  const uniqDrug = drugData.filter((drug) => drug.DrugId === Number(drugId.id));
 
   function handleDetailExpansion() {
     setExpandDrugDetail(!expandDrugDetail);
@@ -23,14 +22,15 @@ export default function DrugListCard() {
 
   return (
     <div>
-      {uniqDrug.length > 0 && (
-        <Paper className="drugItem">
+      {drug ? (
+        <Paper className={styleClassName.DrugDetailCard}>
           <table>
             <tbody>
               <tr>
                 <td>ID:</td>
+                {/* include this style in the external style sheet for this component*/}
                 <td colSpan={2} style={{ borderBottom: "2px solid #F1C232" }}>
-                  GHD{uniqDrug[0]?.DrugId}
+                  GHD{drug?.DrugId}
                 </td>
                 <td align="right">
                   <BasicMenu />
@@ -45,17 +45,21 @@ export default function DrugListCard() {
                   )}
                 </td>
                 <td colSpan={2} width={430}>
-                  <p className="drugName">{uniqDrug[0]?.DrugName}</p>
+                  <p>{drug?.DrugName}</p>
                 </td>
                 <td>
-                  <b>¢{uniqDrug[0]?.DrugPrice}</b>
+                  <b>¢{drug?.DrugPrice}</b>
                 </td>
               </tr>
             </tbody>
           </table>
-          <Details ExpandDetail={expandDrugDetail} uniqDrug={uniqDrug} />
+          <Detail
+            ExpandDetail={expandDrugDetail}
+            drug={drug}
+            styleClassName={styleClassName}
+          />
         </Paper>
-      )}
+      ) : null}
     </div>
   );
 }
