@@ -2,10 +2,10 @@ import { Paper } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useState} from "react";
-import Details from "../Details";
+import Detail from "./Detail";
 import BasicMenu from "./Menu";
 
-export default function SampleCode({ drug, styleClassName}) {
+export default function DrugInfoCard({ drug, styleClassName}){
 	const [expandDrugDetail, setExpandDrugDetail] = useState(false);
 
 	function handleDetailExpansion() {
@@ -14,7 +14,7 @@ export default function SampleCode({ drug, styleClassName}) {
 
 	return (
 		<div>
-			{drug.length > 0 && (
+			{drug ?(
 				<Paper className={styleClassName.DrugDetailCard}>
 					<table>
 						<tbody>
@@ -22,7 +22,7 @@ export default function SampleCode({ drug, styleClassName}) {
 								<td>ID:</td>
                                 {/* include this style in the external style sheet for this component*/}
 								<td colSpan={2} style={{ borderBottom: "2px solid #F1C232" }}> 
-									GHD{drug[0]?.DrugId}
+									GHD{drug?.DrugId}
 								</td>
 								<td align="right">
 									<BasicMenu />
@@ -37,20 +37,17 @@ export default function SampleCode({ drug, styleClassName}) {
 									)}
 								</td>
 								<td colSpan={2} width={430}>
-                                    {/* remove the className for this and include the stlyes in main
-                                        component styles sheet by using the p element selector
-                                    */}
-									<p>{drug[0]?.DrugName}</p>
+									<p>{drug?.DrugName}</p>
 								</td>
 								<td>
-									<b>¢{drug[0]?.DrugPrice}</b>
+									<b>¢{drug?.DrugPrice}</b>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-					<Details ExpandDetail={expandDrugDetail} drug={drug} styleClassName={styleClassName}/>
+					<Detail ExpandDetail={expandDrugDetail} drug={drug} styleClassName={styleClassName}/>
 				</Paper>
-			)}
+			): null}
 		</div>
 	);
 }

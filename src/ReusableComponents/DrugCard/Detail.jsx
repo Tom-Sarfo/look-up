@@ -1,11 +1,13 @@
 import { Chip } from "@mui/material";
-import "./DrugDetailCard.css";
+import "./DrugInfoCard.css";
 import BoltIcon from "@mui/icons-material/Bolt";
-export default function DrugDetails({ ExpandDetail, uniqDrug }) {
+import { styleClassName } from "./CommonClassNames";
+
+export default function DrugDetails({ ExpandDetail, drug, styleClassName }) {
 	return (
 		<div>
 			{ExpandDetail === true && (
-				<table width={450} className="DrugDetailTable">
+				<table width={450} className={styleClassName.Details}>
 					<tbody>
 						<tr>
 							<td>
@@ -21,7 +23,7 @@ export default function DrugDetails({ ExpandDetail, uniqDrug }) {
 										background: "#FF5100",
 										color: "white",
 									}}
-									className="chip"
+									className={styleClassName.chip}
 								/>
 							</td>
 						</tr>
@@ -31,7 +33,7 @@ export default function DrugDetails({ ExpandDetail, uniqDrug }) {
 							</td>
 							<td align="center">
 								<b className="RightAlignSmallScreen">
-									{uniqDrug[0]?.Availability}pks
+									{drug?.Availability}pks
 								</b>
 							</td>
 						</tr>
@@ -45,8 +47,8 @@ export default function DrugDetails({ ExpandDetail, uniqDrug }) {
 						</tr>
 						<tr>
 							<td>
-								{uniqDrug[0]?.Alternative !== null ? (
-									<b>{uniqDrug[0]?.Alternative} (Alternative)</b>
+								{drug[0]?.Alternative !== null ? (
+									<b>{drug?.Alternative} (Alternative)</b>
 								) : (
 									<b>No Alternative Available</b>
 								)}
